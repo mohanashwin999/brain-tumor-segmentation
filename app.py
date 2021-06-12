@@ -100,7 +100,8 @@ def load_data(flair, t1, t1ce, t2,sliceno):
   data.append([flair,t1,t1ce,t2])
   data = np.asarray(data,dtype=np.float32)
   data = np.transpose(data,(0,2,3,4,1))
-  data = data[:,sliceno,30:222,30:222,:].reshape([-1,192,192,4])
+  data = data[:,30:120,30:222,30:222,:].reshape([-1,192,192,4]) 
+  data = data[sliceno-30].reshape([-1, 192, 192, 1])
   return data
 
 def return_path(str):
