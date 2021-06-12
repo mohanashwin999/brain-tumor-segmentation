@@ -38,7 +38,7 @@ def sobel(img):
   return img_sobel
 
 def npy_to_img(numpy_img, name):
-    path = os.path.dirname(os.path.abspath(__file__))+"//static//images//"
+    path = os.path.dirname(os.path.abspath(__file__))+"//static//images//saved//"
     plt.figure(figsize=(192, 192))
     plt.imshow(numpy_img)
     plt.axis('off')
@@ -47,7 +47,7 @@ def npy_to_img(numpy_img, name):
 
 
 def predict_and_save_images(data):
-    files = glob.glob(os.path.dirname(os.path.abspath(__file__))+"//static//images//*")
+    files = glob.glob(os.path.dirname(os.path.abspath(__file__))+"//static//images//saved//*")
     if files:
         for f in files:
             os.remove(f)
@@ -127,6 +127,7 @@ def index():
         sliceno = int(request.form.get("sliceno"))
 
         data = load_data(flair_path, t1_path, t1ce_path, t2_path, sliceno)
+        return str(data.shape)+"\n"+str(data)
         predict_and_save_images(data)
 
         files = glob.glob(os.path.dirname(os.path.abspath(__file__))+"//uploads//*")

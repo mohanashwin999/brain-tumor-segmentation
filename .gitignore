@@ -4,4 +4,8 @@ models/*
 uploads/*
 !uploads/.gitkeep
 
+static/images/saved/*
+!static/images/saved/.gitkeep
+
+
 __pycache__
