@@ -63,7 +63,10 @@ def predict_and_save_images(data):
     wnet_model = load_model(path+"wnet-model.hdf5", custom_objects={'dice_coef_loss': dice_coef_loss, 'dice_coef': dice_coef })
     unet_model = load_model(path+"unet-model.hdf5", custom_objects={'dice_coef_loss': dice_coef_loss, 'dice_coef': dice_coef })
     
-    sobel_data = sobel(data)
+    sobel_data = np.zeros_like(data)
+    for i in range(4):
+        sobel_data[0,:,:,i] = sobel(data[0,:,:,i])
+
     data = (data-np.mean(data))/np.max(data)
     sobel_data= (sobel_data-np.mean(sobel_data))/np.max(sobel_data)
 
