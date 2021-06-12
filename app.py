@@ -36,7 +36,6 @@ model_path = os.path.dirname(os.path.abspath(__file__))+"/models/"
 sobel_unet_model = load_model(model_path+"sobel-with-unet-model.hdf5", custom_objects={'dice_coef_loss': dice_coef_loss, 'dice_coef': dice_coef })
 vnet_model = load_model(model_path+"vnet-model.hdf5", custom_objects={'dice_coef_loss': dice_coef_loss, 'dice_coef': dice_coef })
 wnet_model = load_model(model_path+"wnet-model.hdf5", custom_objects={'dice_coef_loss': dice_coef_loss, 'dice_coef': dice_coef })
-unet_model = load_model(model_path+"unet-model.hdf5", custom_objects={'dice_coef_loss': dice_coef_loss, 'dice_coef': dice_coef })
 
 
 def sobel(img):
@@ -75,21 +74,15 @@ def predict_and_save_images(data):
     sobel_unet_image = np.argmax(sobel_unet_model.predict(sobel_data),axis=-1)
     sobel_unet_image = sobel_unet_image.reshape(-1,192,192,1)
 
-    unet_image = np.argmax(unet_model.predict(data),axis=-1)
-    unet_image = unet_image.reshape(-1,192,192,1)
-
     vnet_image = np.argmax(vnet_model.predict(data),axis=-1)
     vnet_image = vnet_image.reshape(-1,192,192,1)
 
     wnet_image = np.argmax(wnet_model.predict(data),axis=-1)
     wnet_image = wnet_image.reshape(-1,192,192,1)
 
-    npy_to_img(unet_image[0,:,:,0], "unet_image")
     npy_to_img(sobel_unet_image[0,:,:,0], "sobel_unet_image")
     npy_to_img(vnet_image[0,:,:,0], "vnet_image")
     npy_to_img(wnet_image[0,:,:,0], "wnet_image")
-
-    
 
 
 def load_data(flair, t1, t1ce, t2,sliceno):

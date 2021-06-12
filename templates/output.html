@@ -24,21 +24,17 @@
 
 
     <div  class="m-2 p-2">
-        <h3>Predicted Tumor Region using 4 different Models</h3>
+        <h3>Predicted Tumor Region using 3 different Models</h3>
         <div class=row>
-            <div class="col-12 col-sm-3">
-                <img class="row" src="{{url_for('static', filename='images/saved/unet_image.png')}}">
-                <p style="text-align:center;" class="row">Predicted Tumor region using U-Net</p>
-            </div>
-            <div class="col-12 col-sm-3">
+            <div class="col-12 col-sm-4">
                 <img class="row" src="{{url_for('static', filename='images/saved/sobel_unet_image.png')}}">
                 <p style="text-align:center;" class="row">Predicted Tumor region using modified U-Net with Sobel operator</p>
             </div>
-            <div class="col-12 col-sm-3">
+            <div class="col-12 col-sm-4">
                 <img class="row" src="{{url_for('static', filename='images/saved/vnet_image.png')}}">
                 <p style="text-align:center;" class="row"></p>Predicted Tumor region using V-Net</p>
             </div>
-            <div class="col-12 col-sm-3">
+            <div class="col-12 col-sm-4">
                 <img class="row" src="{{url_for('static', filename='images/saved/wnet_image.png')}}">
                 <p style="text-align:center;" class="row">Predicted Tumor region using W-Net</p>
             </div>
