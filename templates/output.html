@@ -4,19 +4,19 @@
         <h3>Images of Slice No. {{sliceno}} of all 4 modalities</h3>
         <div class=row>
             <div class="col-12 col-sm-3">
-                <img class="row" src="{{url_for('static', filename='images/saved/flair.jpg')}}">
+                <img class="row" src="../static/images/saved/flair.jpg">
                 <p style="text-align:center;" class="row">Slice No. {{sliceno}} of FLAIR modality</p>
             </div>
             <div class="col-12 col-sm-3">
-                <img class="row" src="{{url_for('static', filename='images/saved/t1.jpg')}}">
+                <img class="row" src="../static/images/saved/t1.jpg">
                 <p style="text-align:center;" class="row">Slice No. {{sliceno}} of T1 modality</p>
             </div>
             <div class="col-12 col-sm-3">
-                <img class="row" src="{{url_for('static', filename='images/saved/t1ce.jpg')}}">
+                <img class="row" src="../static/images/saved/t1ce.jpg">
                 <p style="text-align:center;" class="row">Slice No. {{sliceno}} of T1-ce modality</p>
             </div>
             <div class="col-12 col-sm-3">
-                <img class="row" src="{{url_for('static', filename='images/saved/t2.jpg')}}">
+                <img class="row" src="../static/images/saved/t2.jpg">
                 <p style="text-align:center;" class="row">Slice No. {{sliceno}} of T2 modality</p>
             </div>
         </div>
@@ -27,15 +27,15 @@
         <h3>Predicted Tumor Region using 3 different Models</h3>
         <div class=row>
             <div class="col-12 col-sm-4">
-                <img class="row" src="{{url_for('static', filename='images/saved/sobel_unet_image.jpg')}}">
+                <img class="row" src="../static/images/saved/sobel_unet_image.jpg">
                 <p style="text-align:center;" class="row">Predicted Tumor region using modified U-Net with Sobel operator</p>
             </div>
             <div class="col-12 col-sm-4">
-                <img class="row" src="{{url_for('static', filename='images/saved/vnet_image.jpg')}}">
+                <img class="row" src="../static/images/saved/vnet_image.jpg">
                 <p style="text-align:center;" class="row"></p>Predicted Tumor region using V-Net</p>
             </div>
             <div class="col-12 col-sm-4">
-                <img class="row" src="{{url_for('static', filename='images/saved/wnet_image.jpg')}}">
+                <img class="row" src="../static/images/saved/wnet_image.jpg">
                 <p style="text-align:center;" class="row">Predicted Tumor region using W-Net</p>
             </div>
         </div>
