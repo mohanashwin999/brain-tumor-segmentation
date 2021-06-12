@@ -16,9 +16,12 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib
+
+from flask_ngrok import run_with_ngrok
 matplotlib.use('Agg')
 
 app = Flask(__name__)
+run_with_ngrok(app)
 
     
 def dice_coef(y_true, y_pred, epsilon=1e-6):

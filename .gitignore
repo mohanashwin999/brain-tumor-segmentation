@@ -3,3 +3,5 @@ models/*
 
 uploads/*
 !uploads/.gitkeep
+
+__pycache__
