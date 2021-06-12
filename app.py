@@ -132,10 +132,13 @@ def index():
         for f in files:
             os.remove(f)
 
-        return render_template("output.html", sliceno = sliceno )
-
+        return redirect(url_for('output'), sliceno=sliceno)
     else:
         return render_template("index.html")
+
+@app.route('/output/')
+def output(sliceno):
+  return render_template("output.html")
 
 if __name__ == "__main__":
     app.run()
