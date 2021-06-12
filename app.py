@@ -38,7 +38,7 @@ def sobel(img):
   return img_sobel
 
 def npy_to_img(numpy_img, name):
-    path = os.path.dirname(os.path.abspath(__file__))+"//static//images//"
+    path = os.path.dirname(os.path.abspath(__file__))+"/static/images/"
     plt.figure(figsize=(192, 192))
     plt.imshow(numpy_img)
     plt.axis('off')
@@ -47,7 +47,7 @@ def npy_to_img(numpy_img, name):
 
 
 def predict_and_save_images(data):
-    files = glob.glob(os.path.dirname(os.path.abspath(__file__))+"//static//images//*")
+    files = glob.glob(os.path.dirname(os.path.abspath(__file__))+"/static/images/*")
     if files:
         for f in files:
             os.remove(f)
@@ -57,7 +57,7 @@ def predict_and_save_images(data):
     npy_to_img(data[0,:,:,2], "t1ce")
     npy_to_img(data[0,:,:,3], "t2")
     
-    path = os.path.dirname(os.path.abspath(__file__))+"//models//"
+    path = os.path.dirname(os.path.abspath(__file__))+"/models/"
     sobel_unet_model = load_model(path+"sobel-with-unet-model.hdf5", custom_objects={'dice_coef_loss': dice_coef_loss, 'dice_coef': dice_coef })
     vnet_model = load_model(path+"vnet-model.hdf5", custom_objects={'dice_coef_loss': dice_coef_loss, 'dice_coef': dice_coef })
     wnet_model = load_model(path+"wnet-model.hdf5", custom_objects={'dice_coef_loss': dice_coef_loss, 'dice_coef': dice_coef })
@@ -104,12 +104,12 @@ def load_data(flair, t1, t1ce, t2,sliceno):
   return data
 
 def return_path(str):
-    return os.path.dirname(os.path.abspath(__file__))+"//uploads//{}.nii.gz".format(str)
+    return os.path.dirname(os.path.abspath(__file__))+"/uploads/{}.nii.gz".format(str)
 
 @app.route("/", methods=['GET','POST'])
 def index():
     if request.method == "POST":
-        files = glob.glob(os.path.dirname(os.path.abspath(__file__))+"//uploads//*")
+        files = glob.glob(os.path.dirname(os.path.abspath(__file__))+"/uploads/*")
         if files:
             for f in files:
                 os.remove(f)
@@ -129,7 +129,7 @@ def index():
         data = load_data(flair_path, t1_path, t1ce_path, t2_path, sliceno)
         predict_and_save_images(data)
 
-        files = glob.glob(os.path.dirname(os.path.abspath(__file__))+"//uploads//*")
+        files = glob.glob(os.path.dirname(os.path.abspath(__file__))+"/uploads/*")
         for f in files:
             os.remove(f)
 
