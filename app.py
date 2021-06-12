@@ -50,7 +50,7 @@ def npy_to_img(numpy_img, name):
     plt.imshow(numpy_img)
     plt.axis('off')
     fig = plt.gcf()
-    fig.savefig(path+name+".png", format='png')
+    fig.savefig(path+name+".jpg", format='jpg')
 
 
 def predict_and_save_images(data):
