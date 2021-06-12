@@ -82,10 +82,10 @@ def predict_and_save_images(data):
     wnet_image = np.argmax(wnet_model.predict(data),axis=-1)
     wnet_image = wnet_image.reshape(-1,192,192,1)
 
-    npy_to_img(unet_image, "unet_image")
-    npy_to_img(sobel_unet_image, "sobel_unet_image")
-    npy_to_img(vnet_image, "vnet_image")
-    npy_to_img(wnet_image, "wnet_image")
+    npy_to_img(unet_image[0,:,:,0], "unet_image")
+    npy_to_img(sobel_unet_image[0,:,:,0], "sobel_unet_image")
+    npy_to_img(vnet_image[0,:,:,0], "vnet_image")
+    npy_to_img(wnet_image[0,:,:,0], "wnet_image")
 
     
 
