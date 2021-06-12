@@ -128,7 +128,6 @@ def index():
         sliceno = int(request.form.get("sliceno"))
 
         data = load_data(flair_path, t1_path, t1ce_path, t2_path, sliceno)
-        return str(data.shape)+"\n"+str(data)
         predict_and_save_images(data)
 
         files = glob.glob(os.path.dirname(os.path.abspath(__file__))+"//uploads//*")
