@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
+
+    <!--Font Awesome CSS-->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!--Bootstrap Social CSS-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css" rel="stylesheet">
+
+    <!--My CSS-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/index.css') }}" />
+    <link rel="icon" type="image/png" href="">
+
+    <title>{% block title %} {% endblock %}</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
+
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <a class="navbar-brand" href=""><img src="" height="30" width="140" alt="logo"></a>
+
+            <div class="collapse navbar-collapse" id="Navbar">
+
+                <ul class="navbar-nav mr-auto">
+
+                    <li class="nav-item active"><a class="nav-link" href=""><span class="fa fa-code fa-lg"></span> Code
+                            Paster</a></li>
+                    <li class="nav-item active"><a class="nav-link" href=""><span class="fa fa-link fa-lg"></span>
+                            Link Shortener</a></li>
+
+                    <li class="nav-item"><a class="nav-link active" href=""><span class="fa fa-file fa-lg"></span>
+                            Media Uploader</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-------------------------------------------------------------------------------------------------------->
+    <div class="content">
+        {% block body %} {% endblock %}
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-5 offset-1 col-sm-7">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="m-1 text-white"><a href=""><span class="fa fa-link"></span> Code Paster</a>
+                        </li>
+                        <li class="m-1 text-white"><a href=""><span class="fa fa-link"></span> Link
+                                shortener</a></li>
+                        <li class="m-1 text-white"><a href=""><span class="fa fa-link"></span> Media
+                                Uploader</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-sm-1">
+
+                </div>
+                <div class="col-sm align-self-center">
+                    <div style="text-align:center">
+                        <a class="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/in/ashwinmohan7"><i
+                                class="fa fa-linkedin fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-github" href="http://github.com/mohanashwin999"><i
+                                class="fa fa-github fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-facebook" href="https://www.facebook.com/ashwin.mohan.338/"><i
+                                class="fa fa-facebook fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-instagram" href="https://www.instagram.com/ashwin_mohan/"><i
+                                class="fa fa-instagram fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-auto">
+                    <p>© Copyright 2020</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-------------------------------------------------------------------------------------------------------->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

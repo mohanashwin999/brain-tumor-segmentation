@@ -1,0 +1,74 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.row-header {
+    margin: 0px auto;
+    padding: 0px;
+}
+
+.secondary {
+    background-color: #489fb5;
+    color: white;
+}
+
+.primary {
+    background-color: #16697a;
+    color: white;
+}
+
+.section-heading {
+    font-size: 18px;
+}
+
+.content {
+    flex: 1 0 auto;
+}
+
+.ternary {
+    background-color: #EDE7E3;
+}
+
+.row-content {
+    margin: 0px auto;
+    padding: 40px 0px 30px 0px;
+    border-bottom: 1px ridge;
+    min-height: 400px;
+}
+
+.footer {
+    background-color: #EDE7E3;
+    margin: 0px auto;
+    padding: 20px 0px 20px 0px;
+    flex-shrink: 0;
+    width: 100%;
+}
+
+.jumbotron {
+    padding: 50px 20px 50px 20px;
+    margin: 0px auto;
+    color: floralwhite;
+    background-image: url("https://images.unsplash.com/photo-1601229749354-b817e9929e65?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
+}
+
+body {
+    padding: 50px 0px 0px 0px;
+    z-index: 0;
+}
+
+.tab-content {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+
+.navbar-dark {
+    background-color: #16697a;
+}

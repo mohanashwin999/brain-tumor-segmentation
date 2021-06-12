@@ -1,0 +1,54 @@
+{% extends "base.html" %} {% block title %} Upload Form | BTS {% endblock %} {% block body %}
+<div id="urlFormContainer" class="mx-auto card m-5 p-3 col-12 col-sm-4">
+    <center>
+        <h3 class="section-heading">Upload The Files</h3>
+    </center>
+    <hr>
+
+    <form method="POST" id="uploadForm" enctype="multipart/form-data">
+
+        <div class="form-group">
+            <label for="flair">Upload Flair modality nifti file of patient's MRI *</label>
+            <input type="file" class="form-control-file" id="flair" placeholder="Upload" name="flair" required /> 
+            {% if error %}
+                <span id="size-error" style="color:red;">{{error}}</span> 
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label for="t1">Upload T1 modality nifti file of patient's MRI *</label>
+            <input type="file" class="form-control-file" id="t1" placeholder="Upload" name="t1" required /> 
+            {% if error %}
+                <span id="size-error" style="color:red;">{{error}}</span> 
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label for="t1ce">Upload T1ce modality nifti file of patient's MRI *</label>
+            <input type="file" class="form-control-file" id="t1ce" placeholder="Upload" name="t1ce" required /> 
+            {% if error %}
+                <span id="size-error" style="color:red;">{{error}}</span> 
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label for="t2">Upload T2 modality nifti file of patient's MRI *</label>
+            <input type="file" class="form-control-file" id="t2" placeholder="Upload" name="t2" required /> 
+            {% if error %}
+                <span id="size-error" style="color:red;">{{error}}</span> 
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label for="sliceno">Enter Slice Number (30-120) *</label>
+            <input type="number" class="form-control" id="sliceno" placeholder="Slice Number" name="sliceno" required />
+        </div>
+
+
+        <center><button type="submit" name="submit-button" type="submit" class="btn primary mb-3 mt-3 p-2" style="width:100%">Submit</button>
+        </center>
+    </form>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+{% endblock %}
