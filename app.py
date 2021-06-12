@@ -32,7 +32,7 @@ def dice_coef(y_true, y_pred, epsilon=1e-6):
 def dice_coef_loss(y_true, y_pred):
     return 1-dice_coef(y_true, y_pred)
 
-model_path = "./models/"
+model_path = os.path.dirname(os.path.abspath(__file__))+"/models/"
 sobel_unet_model = load_model(model_path+"sobel-with-unet-model.hdf5", custom_objects={'dice_coef_loss': dice_coef_loss, 'dice_coef': dice_coef })
 vnet_model = load_model(model_path+"vnet-model.hdf5", custom_objects={'dice_coef_loss': dice_coef_loss, 'dice_coef': dice_coef })
 wnet_model = load_model(model_path+"wnet-model.hdf5", custom_objects={'dice_coef_loss': dice_coef_loss, 'dice_coef': dice_coef })
@@ -45,7 +45,7 @@ def sobel(img):
   return img_sobel
 
 def npy_to_img(numpy_img, name):
-    path = "./static/images/saved/"
+    path = os.path.dirname(os.path.abspath(__file__))+"/static/images/saved/"
     plt.figure(figsize=(192, 192))
     plt.imshow(numpy_img)
     plt.axis('off')
@@ -54,7 +54,7 @@ def npy_to_img(numpy_img, name):
 
 
 def predict_and_save_images(data):
-    files = glob.glob("./static/images/saved/*")
+    files = glob.glob(os.path.dirname(os.path.abspath(__file__))+"/static/images/saved/*")
     if files:
         for f in files:
             os.remove(f)
@@ -103,12 +103,12 @@ def load_data(flair, t1, t1ce, t2,sliceno):
   return data
 
 def return_path(str):
-    return "./uploads/{}.nii.gz".format(str)
+    return os.path.dirname(os.path.abspath(__file__))+"/uploads/{}.nii.gz".format(str)
 
 @app.route("/", methods=['GET','POST'])
 def index():
     if request.method == "POST":
-        files = glob.glob("./uploads/*")
+        files = glob.glob(os.path.dirname(os.path.abspath(__file__))+"/uploads/*")
         if files:
             for f in files:
                 os.remove(f)
@@ -126,10 +126,9 @@ def index():
         sliceno = int(request.form.get("sliceno"))
 
         data = load_data(flair_path, t1_path, t1ce_path, t2_path, sliceno)
-        return str(data.shape)
         predict_and_save_images(data)
 
-        files = glob.glob("./uploads/*")
+        files = glob.glob(os.path.dirname(os.path.abspath(__file__))+"/uploads/*")
         for f in files:
             os.remove(f)
 
