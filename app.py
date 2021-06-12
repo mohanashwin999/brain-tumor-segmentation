@@ -22,6 +22,12 @@ matplotlib.use('Agg')
 
 app = Flask(__name__)
 run_with_ngrok(app)
+path = os.path.dirname(os.path.abspath(__file__))+"//models//"
+sobel_unet_model = load_model(path+"sobel-with-unet-model.hdf5", custom_objects={'dice_coef_loss': dice_coef_loss, 'dice_coef': dice_coef })
+vnet_model = load_model(path+"vnet-model.hdf5", custom_objects={'dice_coef_loss': dice_coef_loss, 'dice_coef': dice_coef })
+wnet_model = load_model(path+"wnet-model.hdf5", custom_objects={'dice_coef_loss': dice_coef_loss, 'dice_coef': dice_coef })
+unet_model = load_model(path+"unet-model.hdf5", custom_objects={'dice_coef_loss': dice_coef_loss, 'dice_coef': dice_coef })
+    
 
     
 def dice_coef(y_true, y_pred, epsilon=1e-6):
@@ -56,13 +62,7 @@ def predict_and_save_images(data):
     npy_to_img(data[0,:,:,1], "t1")
     npy_to_img(data[0,:,:,2], "t1ce")
     npy_to_img(data[0,:,:,3], "t2")
-    
-    path = os.path.dirname(os.path.abspath(__file__))+"//models//"
-    sobel_unet_model = load_model(path+"sobel-with-unet-model.hdf5", custom_objects={'dice_coef_loss': dice_coef_loss, 'dice_coef': dice_coef })
-    vnet_model = load_model(path+"vnet-model.hdf5", custom_objects={'dice_coef_loss': dice_coef_loss, 'dice_coef': dice_coef })
-    wnet_model = load_model(path+"wnet-model.hdf5", custom_objects={'dice_coef_loss': dice_coef_loss, 'dice_coef': dice_coef })
-    unet_model = load_model(path+"unet-model.hdf5", custom_objects={'dice_coef_loss': dice_coef_loss, 'dice_coef': dice_coef })
-    
+        
     sobel_data = np.zeros_like(data)
     for i in range(4):
         sobel_data[0,:,:,i] = sobel(data[0,:,:,i])
