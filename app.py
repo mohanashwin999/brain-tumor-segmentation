@@ -33,10 +33,10 @@ def dice_coef_loss(y_true, y_pred):
     return 1-dice_coef(y_true, y_pred)
 
 model_path = os.path.dirname(os.path.abspath(__file__))+"//models//"
-sobel_unet_model = load_model(model_path = os.path.dirname(os.path.abspath(__file__))+"//models//" +"sobel-with-unet-model.hdf5", custom_objects={'dice_coef_loss': dice_coef_loss, 'dice_coef': dice_coef })
-vnet_model = load_model(model_path = os.path.dirname(os.path.abspath(__file__))+"//models//"+"vnet-model.hdf5", custom_objects={'dice_coef_loss': dice_coef_loss, 'dice_coef': dice_coef })
-wnet_model = load_model(model_path = os.path.dirname(os.path.abspath(__file__))+"//models//"+"wnet-model.hdf5", custom_objects={'dice_coef_loss': dice_coef_loss, 'dice_coef': dice_coef })
-unet_model = load_model(model_path = os.path.dirname(os.path.abspath(__file__))+"//models//"+"unet-model.hdf5", custom_objects={'dice_coef_loss': dice_coef_loss, 'dice_coef': dice_coef })
+sobel_unet_model = load_model(model_path+"sobel-with-unet-model.hdf5", custom_objects={'dice_coef_loss': dice_coef_loss, 'dice_coef': dice_coef })
+vnet_model = load_model(model_path+"vnet-model.hdf5", custom_objects={'dice_coef_loss': dice_coef_loss, 'dice_coef': dice_coef })
+wnet_model = load_model(model_path+"wnet-model.hdf5", custom_objects={'dice_coef_loss': dice_coef_loss, 'dice_coef': dice_coef })
+unet_model = load_model(model_path+"unet-model.hdf5", custom_objects={'dice_coef_loss': dice_coef_loss, 'dice_coef': dice_coef })
 
 
 def sobel(img):
